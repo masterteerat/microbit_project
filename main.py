@@ -34,7 +34,7 @@ while True:
     if lvl == 4:
         ascii = random.randint(48, 126)
         timeout = 10
-    #ascii = 255
+    ascii = 255
     display.show(chr(ascii))
     #round loop
     while True:
@@ -86,6 +86,9 @@ while True:
         score = 0
         life = 3
         lvl += 1
+        lvlup = "level" + str(lvl)
+        display.scroll(lvlup)
+    
         if lvl == 5:
             display.scroll("You win!")
             break
