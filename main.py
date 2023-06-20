@@ -11,7 +11,7 @@ lvl = 1
 score = 0
 timeout = 0
 life = 3
-#music.set_tempo(bpm=1500)
+
 
 #level loop
 while True:
@@ -20,7 +20,6 @@ while True:
     sec = 0
     ans = 0    
     weight = 7
-    
     #Random ascii char
     if lvl == 1:
         ascii = random.randint(48, 57)
@@ -34,35 +33,40 @@ while True:
     if lvl == 4:
         ascii = random.randint(48, 126)
         timeout = 10
-    ascii = 255
+    #ascii = 255
     display.show(chr(ascii))
+
     #round loop
     while True:
         if button_b.is_pressed():
             music.set_tempo(bpm=1500)
             music.play(['C5', 'C5', 'B', 'B', 'C5'], wait=False)
+            display.clear()
+            time.sleep(0.2) 
+            display.show(chr(ascii))
             ans = ans + 2 ** weight
             weight += -1
         if button_a.is_pressed():
             music.set_tempo(bpm=1500)
             music.play(['E', 'E', 'F', 'F', 'G'], wait=False)
-            
+            display.clear()
+            time.sleep(0.2) 
+            display.show(chr(ascii))
             weight += -1
         if weight == -1:
             if ans == ascii:
                 display.show(Image.YES)
-                time.sleep(1)
+                time.sleep(0.5)
                 score += 1
                 break
             if ans != ascii:
                 display.show(Image.NO)
-                time.sleep(1)
+                time.sleep(0.5)
                 life += -1
                 break
         #time out warning        
         if sec >= (timeout - 5):
-            music.set_tempo(bpm=1500)
-            music.play(['F', 'F'], wait=False)
+            pass
             
         #time out        
         if sec > timeout:
@@ -72,7 +76,7 @@ while True:
             break       
         ms = ms + 300
         sec = ms // 1000
-        time.sleep(0.3) 
+        time.sleep(0.3)
     #Game over checker
     if life == 0:
         display.show(Image.SAD)
@@ -88,7 +92,7 @@ while True:
         lvl += 1
         lvlup = "level" + str(lvl)
         display.scroll(lvlup)
-    
+        #End game.
         if lvl == 5:
             display.scroll("You win!")
             break
