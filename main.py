@@ -1,8 +1,10 @@
+
 #Importing library
 from microbit import *
 import random
 import music
 import time
+
 
 
 #Initialize starting var
@@ -11,7 +13,7 @@ lvl = 1
 score = 0
 timeout = 0
 life = 3
-
+start = 0
 
 #level loop
 while True:
@@ -42,6 +44,7 @@ while True:
             music.set_tempo(bpm=1500)
             music.play(['C5', 'C5', 'B', 'B', 'C5'], wait=False)
             display.clear()
+            display.show(1)
             time.sleep(0.2) 
             display.show(chr(ascii))
             ans = ans + 2 ** weight
@@ -50,6 +53,7 @@ while True:
             music.set_tempo(bpm=1500)
             music.play(['E', 'E', 'F', 'F', 'G'], wait=False)
             display.clear()
+            display.show(0)
             time.sleep(0.2) 
             display.show(chr(ascii))
             weight += -1
@@ -66,7 +70,9 @@ while True:
                 break
         #time out warning        
         if sec >= (timeout - 5):
-            pass
+            display.clear()
+            time.sleep(0.5)
+            display.show(chr(ascii))
             
         #time out        
         if sec > timeout:
@@ -96,4 +102,9 @@ while True:
         if lvl == 5:
             display.scroll("You win!")
             break
+               
+    
+    
+    
+    
             
