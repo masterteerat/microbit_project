@@ -59,11 +59,15 @@ while True:
             weight += -1
         if weight == -1:
             if ans == ascii:
+                music.set_tempo(bpm=500)
+                music.play(['E', 'E', 'E', 'E', 'G'], wait=False)
                 display.show(Image.YES)
                 time.sleep(0.5)
                 score += 1
                 break
             if ans != ascii:
+                music.set_tempo(bpm=500)
+                music.play(['F', 'F', 'F', 'F', 'G'], wait=False)
                 display.show(Image.NO)
                 time.sleep(0.5)
                 life += -1
@@ -72,10 +76,11 @@ while True:
         if sec >= (timeout - 5):
             display.clear()
             time.sleep(0.5)
-            display.show(chr(ascii))
-            
+            display.show(chr(ascii))    
         #time out        
         if sec > timeout:
+            music.set_tempo(bpm=500)
+            music.play(['F', 'F', 'F', 'F', 'G'], wait=False)
             display.show(Image.NO)
             time.sleep(1)
             life += -1
