@@ -15,6 +15,20 @@ timeout = 0
 life = 3
 start = 0
 
+#Start loop
+while True:
+    display.scroll("Please press any button to countinue")
+    if button_b.is_pressed():
+        for i in range(3):
+            display.show("3-i")
+            time.sleep(0.5)
+        break
+    if button_a.is_pressed():
+        for i in range(3):
+            display.show("3-i")
+            time.sleep(0.5)
+        break
+
 #level loop
 while True:
     #Initialize var
