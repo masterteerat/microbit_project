@@ -23,11 +23,13 @@ while True:
         for i in range(3):
             display.show(3-i)
             time.sleep(1)
+        display.scroll("Go!")
         break
     if button_a.is_pressed():
         for i in range(3):
             display.show(3-i)
             time.sleep(1)
+        display.scroll("Go!")
         break
 
 
