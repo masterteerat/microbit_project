@@ -58,6 +58,7 @@ while True:
 
     #round loop
     while True:
+        #Set button b
         if button_b.is_pressed():
             music.set_tempo(bpm=1500)
             music.play(['C5', 'C5', 'B', 'B', 'C5'], wait=False)
@@ -67,6 +68,7 @@ while True:
             display.show(chr(ascii))
             ans = ans + 2 ** weight
             weight += -1
+        #Set button a
         if button_a.is_pressed():
             music.set_tempo(bpm=1500)
             music.play(['E', 'E', 'F', 'F', 'G'], wait=False)
