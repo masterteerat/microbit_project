@@ -77,6 +77,7 @@ while True:
             time.sleep(0.2) 
             display.show(chr(ascii))
             weight += -1
+        #Answwer checker
         if weight == -1:
             if ans == ascii:
                 music.set_tempo(bpm=500)
